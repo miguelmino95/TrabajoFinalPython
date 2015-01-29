@@ -8,13 +8,13 @@ from ec.edu.itsae.conec import DBconec
 import json
 
 
-class MyClass(object):
+class Registrolabcon(object):
     '''
     classdocs
     '''
 
 
-    def __init__(self, params):
+    def __init__(self):
         '''
         Constructor
         '''
@@ -22,7 +22,7 @@ class MyClass(object):
     
     
     
-    def reportarMaquinas(self):
+    def reportarActivos(self):
         con=self.conexion().connect().cursor()
         con.execute("select * from activos")
         reporte=con.fetchall()
