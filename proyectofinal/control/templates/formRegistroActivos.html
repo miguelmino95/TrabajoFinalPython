@@ -41,7 +41,9 @@ $(function(){
 		$('#nombre')
 			.require();
 		$('#numfactura')
-			.require();
+			.require()                          
+	        .match('number')                   
+	        .maxLength(30)	        
 		$('#modelo')
 			.require();          
 	   	
@@ -54,7 +56,7 @@ $(function(){
 </head>
 <body>
 
-		<div id="regAct"  style="display: none;" >
+	<div id="regAct"  style="display: none;" >
 	
 
 		<div class="panel panel-primary" >
@@ -63,7 +65,7 @@ $(function(){
 			</div>
 			<div class="panel-body">
 			<div id="formAdd" align="center">
-			<form action="/addPersona" id="formact" name="formact" class="form-horizontal" role="form" method="post">
+			<form action="/addActivos" id="formact" name="formact" class="form-horizontal" role="form" method="post">
 			
 			<div class="form-group">
 			<label for="nombre" class="col-sm-2 control-label">Nombre:</label>
@@ -84,8 +86,9 @@ $(function(){
 			<label for="estado" class="col-sm-2 control-label">Estado:</label>
 			<div class="col-sm-10">
 			<select name="estado" class="form-control">
-			<option value="1">Activo</option>
-			<option value="2">Inactivo</option>
+			<option value="1">Nuevo</option>
+			<option value="2">Usado</option>
+			<option value="3">De Baja</option>
 			</select>
 			</div>
 			</div>
@@ -98,10 +101,17 @@ $(function(){
 			</div>
 			</div>
 			
-				<div class="form-group">
+			<div class="form-group">
 			<label for="modelo" class="col-sm-2 control-label">Modelo:</label>
 			<div class="col-sm-10">
 			<input type="text" id="modelo" name="modelo" class="form-control">
+			</div>
+			</div>
+			
+			<div class="form-group">
+			<label for="descripcion" class="col-sm-2 control-label">descripcion:</label>
+			<div class="col-sm-10">
+			<textarea rows="4" class="form-control" name="descripcion"></textarea>
 			</div>
 			</div>
 			
@@ -128,7 +138,7 @@ $(function(){
 <div>
 	<div id= "divForms" align="center">
 	
-	<form action="/mostrarauto" id="form" class="form-inline" role="form" >
+	<form action="/buscarActivo" id="form" class="form-inline" role="form" >
 	
 	<div class="form-group">
 	<label for="Anombre" class="col-sm-2 control-label">Buscar Nombre:</label>
@@ -142,6 +152,7 @@ $(function(){
 	</form>
 	
 	</div>
+</div>
 		
 	<div class="table-responsive">
 	<table class="table" id="tableActivo">
@@ -153,6 +164,8 @@ $(function(){
 			<th>Estado</th>
 			<th>Numero de Fact</th>
 			<th>Modelo</th>
+			<th>Descripcion</th>
+			<th>Opciones</th>
 			
 			<!--  <th>opciones</th>-->
 		</tr>	
@@ -165,9 +178,13 @@ $(function(){
 			<td>{{p[2]}}</td>
 			<td>{{p[3]}}</td>
 			<td>{{p[4]}}</td>
-			<td>{{p[5]}}</td>		
-			<td><a id="eliminar" class="btn btn-success" href="#">X</a>
-			<a id="editar" class="btn btn-success" href="#">Editar</a>								
+			<td>{{p[5]}}</td>	
+			<td>{{p[6]}}</td>	
+			<td>
+			<a id="editar" class="btn btn-success" href="#">Editar</a>
+			<a id="eliminar" class="btn btn-success" href="/delActivos">X</a>
+			</td>
+											
 		</tr>
 		{% endfor %}	
 		</tbody>	
@@ -177,7 +194,7 @@ $(function(){
 	
 	
 <script type="text/javascript">
-	$('#tableItsae').DataTable({
+	$('#tableActivo').DataTable({
 		pagingType:"bootstrapPager",
 		pagerSettings:{ 
 			searchOnEnter:true,
@@ -189,8 +206,8 @@ $(function(){
 </script>	
 	
 <script type="text/javascript">
-$('#bnombre').autocomplete({
-		source:"/buscarauto",
+$('#Anombre').autocomplete({
+		source:"/buscaractauto",
 		minLength:2
 		});
 </script>	
