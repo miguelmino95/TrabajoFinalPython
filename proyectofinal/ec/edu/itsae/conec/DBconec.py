@@ -13,10 +13,10 @@ class DBcon():
         
     def conexion(self):
         mysql = MySQL()
-        app = Flask(__name__)
-        app.config['MYSQL_DATABASE_USER'] = 'adminlab'
-        app.config['MYSQL_DATABASE_PASSWORD'] = 'labo2015'
-        app.config['MYSQL_DATABASE_DB'] = 'centro_de_computo'
-        app.config['MYSQL_DATABASE_HOST'] = 'localhost'
-        mysql.init_app(app)
+        control = Flask(__name__)
+        control.config['MYSQL_DATABASE_USER'] = 'adminlab'
+        control.config['MYSQL_DATABASE_PASSWORD'] = 'labo2015'
+        control.config['MYSQL_DATABASE_DB'] = 'centro_de_computo'
+        control.config['MYSQL_DATABASE_HOST'] = 'localhost'
+        mysql.init_app(control)
         return mysql

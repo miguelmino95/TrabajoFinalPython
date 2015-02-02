@@ -5,7 +5,7 @@ Created on 1/2/2015
 '''
 
 
-from app import app
+from control import control
 
 if __name__ == '__main__':
-    app.run()
+    control.run(debug=True)
