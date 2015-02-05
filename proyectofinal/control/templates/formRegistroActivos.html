@@ -102,9 +102,23 @@ $(function(){
 			</div>
 			
 			<div class="form-group">
-			<label for="modelo" class="col-sm-2 control-label">Modelo:</label>
+			<label for="modelo" class="col-sm-2 control-label">Modelo/Serie:</label>
 			<div class="col-sm-10">
 			<input type="text" id="modelo" name="modelo" class="form-control">
+			</div>
+			</div>
+			
+			<div class="form-group">
+			<label for="marca_hardware" class="col-sm-2 control-label">Marca:</label>
+			<div class="col-sm-10">
+			<input type="text" id="marca_hardware" name="marca_hardware" class="form-control">
+			</div>
+			</div>
+			
+			<div class="form-group">
+			<label for="codigo" class="col-sm-2 control-label">Codigo:</label>
+			<div class="col-sm-10">
+			<input type="text" id="codigo" name="codigo" class="form-control">
 			</div>
 			</div>
 			
@@ -112,6 +126,20 @@ $(function(){
 			<label for="descripcion" class="col-sm-2 control-label">descripcion:</label>
 			<div class="col-sm-10">
 			<textarea rows="4" class="form-control" name="descripcion"></textarea>
+			</div>
+			</div>
+			
+			<div class="form-group">
+			<label for="persona" class="col-sm-2 control-label">Responsable:</label>
+			<div class="col-sm-10">
+			<input type="text" id="persona" name="persona" class="form-control">
+			</div>
+			</div>
+			
+			<div class="form-group">
+			<label for="area" class="col-sm-2 control-label">Area:</label>
+			<div class="col-sm-10">
+			<input type="text" id="area" name="area" class="form-control">
 			</div>
 			</div>
 			
@@ -163,8 +191,12 @@ $(function(){
 			<th>Fecha de Compra</th>
 			<th>Estado</th>
 			<th>Numero de Fact</th>
-			<th>Modelo</th>
+			<th>Modelo/Serie</th>
+			<th>Marca</th>
+			<th>Codigo</th>
 			<th>Descripcion</th>
+			<th>Responsable</th>
+			<th>Area</th>
 			<th>Opciones</th>
 			
 			<!--  <th>opciones</th>-->
@@ -179,7 +211,11 @@ $(function(){
 			<td>{{p[3]}}</td>
 			<td>{{p[4]}}</td>
 			<td>{{p[5]}}</td>	
-			<td>{{p[6]}}</td>	
+			<td>{{p[6]}}</td>
+			<td>{{p[7]}}</td>
+			<td>{{p[8]}}</td>
+			<td>{{p[9]}}</td>
+			<td>{{p[10]}}</td>	
 			<td>
 			<a id="editar" class="btn btn-success" href="#">Editar</a>
 			<a id="eliminar" class="btn btn-success" href="/delActivos">X</a>
