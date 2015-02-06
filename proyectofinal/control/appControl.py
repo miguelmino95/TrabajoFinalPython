@@ -25,15 +25,12 @@ def addActivos():
     fcompra=request.form.get('fech_compra', type=str)
     estado=request.form.get('estado', type=int)
     nfactura=request.form.get('num_factura', type=str)
-    modelo_serie=request.form.get('modelo_serie', type=str)
-    marca_hardware=request.form.get('marca_hardware', type=str)
-    codigo=request.form.get('codigo', type=str)
+    modelo=request.form.get('modelo', type=str)
     descripcion=request.form.get('descripcion', type=str)
-    persona=request.form.get('persona_idpersona', type=str)
-    area=request.form.get('area_depart_idarea_depart', type=str)
+    
 
-    Accionlabcon.Accionlabcon().selectPersonaArea(persona, area)
-    Accionlabcon.Accionlabcon().insertarActivo(nombre, fcompra, estado, nfactura, modelo_serie, marca_hardware, codigo,descripcion, persona, area)
+
+    Accionlabcon.Accionlabcon().insertarActivo(nombre, fcompra, estado, nfactura, modelo,descripcion)
     return redirect(url_for('reportarActivo'))
 
 @control.route("/delActivos")
@@ -43,13 +40,11 @@ def delActivos():
     fcompra=request.form.get('fech_compra', type=str)
     estado=request.form.get('estado', type=int)
     nfactura=request.form.get('num_factura', type=str)
-    modelo_serie=request.form.get('modelo_serie', type=str)
-    marca_hardware=request.form.get('marca_hardware', type=str)
-    codigo=request.form.get('codigo', type=str)
+    modelo=request.form.get('modelo', type=str)
     descripcion=request.form.get('descripcion', type=str)
 
 
-    Accionlabcon.Accionlabcon().EliminarActivo(nombre, fcompra, estado, nfactura, modelo_serie, marca_hardware, codigo,descripcion)
+    Accionlabcon.Accionlabcon().EliminarActivo(nombre, fcompra, estado, nfactura, modelo, descripcion)
     return redirect(url_for('reportarActivo'))
 
 @control.route("/buscarActivo")
